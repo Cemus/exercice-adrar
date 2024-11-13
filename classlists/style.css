@@ -18,6 +18,13 @@ header {
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
+  box-shadow: 4px 4px 4px rgb(78, 78, 78);
+}
+
+.glass {
+  border: none;
+  background: white;
+  box-shadow: 4px 4px 8px rgb(78, 78, 78);
 }
 
 h1 {
@@ -49,7 +56,12 @@ div {
 }
 
 @media (max-width: 800px) {
+  h1 {
+    font-size: 1.5rem;
+  }
   div {
+    text-align: center;
     flex-direction: column;
+    gap: 0.5rem;
   }
 }
