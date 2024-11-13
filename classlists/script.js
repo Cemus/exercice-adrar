@@ -30,7 +30,5 @@ a2.addEventListener("click", () => {
 });
 
 a3.addEventListener("click", () => {
-  h1.classList.contains("toggled")
-    ? h1.classList.remove("toggled")
-    : h1.classList.add("toggled");
+  h1.classList.toggle("toggled");
 });

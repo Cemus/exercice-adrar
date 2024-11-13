@@ -21,6 +21,7 @@ header {
 
 a {
   cursor: pointer;
+  user-select: none;
 }
 
 div {
