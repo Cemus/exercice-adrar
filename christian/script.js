@@ -2,7 +2,7 @@ const message = document.getElementsByTagName("h3")[0];
 const input = document.getElementsByTagName("input")[0];
 const textArea = document.getElementsByTagName("textarea")[0];
 const button = document.getElementsByTagName("button")[0];
-const maxInput = 150;
+const maxInput = 5;
 
 const storageText = localStorage.getItem("text");
 if (storageText) {
