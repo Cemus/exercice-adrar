@@ -13,6 +13,7 @@ img {
   animation-duration: 4s;
   animation-iteration-count: 1;
   animation-direction: alternate;
+  box-shadow: 0 0 40px rgb(255, 174, 0);
 }
 
 body {
