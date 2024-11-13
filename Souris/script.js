@@ -6,7 +6,6 @@ const imageBank = [
 ];
 
 document.addEventListener("click", (e) => {
-  console.log(e);
   createElement(e.x, e.y);
 });
 
