@@ -10,24 +10,24 @@ const imageBank = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzPqrN_WdB2uhKXLcz7cIGLTJ6498r5PMS-Q&s",
 ];
 
-document.addEventListener("click", (e) => {
-  createElement(e.x, e.y);
-});
-
 function getImage() {
   const random = Math.floor(Math.random() * imageBank.length);
   return imageBank[random];
 }
 
+document.addEventListener("click", (e) => {
+  createElement(e.x, e.y);
+});
+
 function createElement(x, y) {
   const image = document.createElement("img");
+  image.src = getImage();
+
   image.style.position = "absolute";
   image.style.top = y + "px";
   image.style.left = x + "px";
   image.style.transform = "translate(-50%,-50%)";
   image.style.height = "25%";
-
-  image.src = getImage();
 
   document.body.append(image);
 }
