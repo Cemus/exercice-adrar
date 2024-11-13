@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(17, 17, 17);
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(22, 22, 22);
+  color: white;
+  letter-spacing: 1rem;
+}
+
+#clouds {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100vh;
+}
+
+.boxBar {
+  z-index: 1;
+  width: 2rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px white;
+}
+
+.bar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.753);
+}
