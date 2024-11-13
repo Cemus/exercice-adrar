@@ -9,7 +9,7 @@ header {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(#f3740c, #f3cb49);
+  background: linear-gradient(to right, #fc8d6c, #ffc251);
   height: 20rem;
   width: 40rem;
   border-radius: 0.5rem;
@@ -19,9 +19,23 @@ header {
   align-items: center;
 }
 
+h1 {
+  color: rgb(34, 33, 33);
+}
+
 a {
   cursor: pointer;
   user-select: none;
+  background-color: white;
+  border: 4px solid black;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
 }
 
 div {
