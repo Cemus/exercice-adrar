@@ -10,13 +10,14 @@ header {
   top: 50%;
   transform: translate(-50%, -50%);
   background: linear-gradient(to right, #fc8d6c, #ffc251);
-  height: 20rem;
-  width: 40rem;
+  height: 35%;
+  width: 50%;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 1rem;
 }
 
 h1 {
@@ -40,7 +41,14 @@ a:hover {
 
 div {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
   justify-content: space-evenly;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  div {
+    flex-direction: column;
+  }
 }
