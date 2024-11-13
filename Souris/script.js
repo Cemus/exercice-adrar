@@ -1,10 +1,10 @@
 const imageBank = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzYHSYFBgdU-RVITnLLIXSbES3Is5vWlq5Fw&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttZ1dQav-ujm952ibBKRA2kw_7sKRkujo6A&s",
-  "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuYVFUOgjGAD8Rc9Fe1EZkt_v2YiySOVbTHw&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjJ9RVKuLZGlAy9G7oKkyb8TURYam7Q09uqA&s ",
-  "https://i.f1g.fr/media/eidos/1200x630_crop/2020/12/22/XVMd15fe736-4466-11eb-b24a-89d459643e2c-805x537.jpg",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTGRPyy5VrHCI6yjk5JkNxz4K4-_Ih5B-9wVuT_fZ7azD8bQktQAGM589aAHQPSCbcMqFkTM29I08pjYmPwUp1IkAqOVSZaqREXHsDGgkQ",
+  "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRd17F8IxphNd7-1S1SlGXy3s-cMBihcorjUkQI5-1i4Bw5npaXV4DamlvtcIOu7UrNhzeOSZ-kinpkw2_SGlKFG47O9byQdY_W1b4IZQ",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Friedrich_Engels_portrait_%28cropped%29.jpg/260px-Friedrich_Engels_portrait_%28cropped%29.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaHREW07MwRgXw3dibyK0WloK-gVxQUmA4Kw&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcn1DwEsNNGt4RNkEXLTInHdplbB8cgQdYqQ&s ",
+  "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQfPMyOEUOy0p2lzXMVH1D9SFTsiygMh4JMnRqHq4rnFUxMx-YFTCN9pEsis0Wqyf16muMmTQffRggI8Sk",
 ];
 
 document.addEventListener("click", (e) => {
