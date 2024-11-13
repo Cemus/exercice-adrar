@@ -5,6 +5,9 @@ const imageBank = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaHREW07MwRgXw3dibyK0WloK-gVxQUmA4Kw&s",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcn1DwEsNNGt4RNkEXLTInHdplbB8cgQdYqQ&s ",
   "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQfPMyOEUOy0p2lzXMVH1D9SFTsiygMh4JMnRqHq4rnFUxMx-YFTCN9pEsis0Wqyf16muMmTQffRggI8Sk",
+  "https://upload.wikimedia.org/wikipedia/commons/d/dc/Hammer_and_sickle.png",
+  "https://affiches-francaises.com/cdn/shop/products/IMG_4363.jpg?v=1669039955",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzPqrN_WdB2uhKXLcz7cIGLTJ6498r5PMS-Q&s",
 ];
 
 document.addEventListener("click", (e) => {

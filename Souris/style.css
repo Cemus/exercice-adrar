@@ -9,8 +9,25 @@ img {
   -o-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
+  animation-name: move;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
 }
 
 body {
   cursor: pointer;
+  background: linear-gradient(to right, rgb(27, 27, 27), black);
+}
+
+@keyframes move {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+
+  100% {
+    top: top + 1;
+    right: right + 1;
+  }
 }
