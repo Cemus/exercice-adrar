@@ -1,0 +1,44 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(164, 195, 253);
+  padding-inline: 1rem;
+  padding-block: 4rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  border-radius: 0.5rem;
+  width: 70%;
+}
+
+button {
+  border-style: none;
+  background-color: rgb(48, 114, 236);
+  color: white;
+  font-size: medium;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}

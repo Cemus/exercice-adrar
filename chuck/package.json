@@ -1,0 +1,18 @@
+{
+  "name": "js-exo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://cemus.github.io/exercice_ADRAR_js/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0",
+    "vite": "^5.4.10"
+  }
+}
