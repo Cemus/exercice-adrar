@@ -11,7 +11,7 @@ cd "./$nom_projet" || { echo "Échec du changement de répertoire"; exit 1; }
 
 touch index.html style.css script.js .gitignore package.json
 
-echo "{
+echo '{
   "devDependencies": {
     "vite": "^5.4.11"
   },
@@ -19,7 +19,7 @@ echo "{
     "dev": "vite --open"
   }
 }
-" >> package.json
+'>> package.json
 
 echo "/node_modules" >> .gitignore
 
