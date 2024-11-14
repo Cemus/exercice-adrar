@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.text-container {
+  border: 0.1rem solid black;
+  min-height: 22vh;
+}
