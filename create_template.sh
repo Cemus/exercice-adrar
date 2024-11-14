@@ -16,7 +16,7 @@ echo "<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer/>
+    <script type="module" src="script.js" defer/>
     <link rel="stylesheet" href="style.css" />
     <title>${nom_projet^}</title>
 </head>
