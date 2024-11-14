@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball {
+  max-width: 4vw;
+  animation-name: pokeball;
+  animation-duration: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  max-width: 15vw;
+}
+
+dialog {
+  border: none;
+}
+
+@keyframes pokeball {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

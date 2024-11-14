@@ -11,6 +11,10 @@ cd "./$nom_projet" || { echo "Échec du changement de répertoire"; exit 1; }
 
 touch index.html style.css script.js
 
+echo "body{
+margin:0;
+box-sizing:border-box;}">> style.css
+
 echo "<!DOCTYPE html>
 <html lang='en'>
 <head>
