@@ -8,6 +8,7 @@ else
 mkdir ./$nom_projet
 cd "./$nom_projet" || { echo "Échec du changement de répertoire"; exit 1; }
 
+
 touch index.html style.css script.js
 
 echo "<!DOCTYPE html>
@@ -17,7 +18,7 @@ echo "<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer/>
     <link rel="stylesheet" href="style.css" />
-    <title>$nom_projet</title>
+    <title>${nom_projet^}</title>
 </head>
 <body>
     
