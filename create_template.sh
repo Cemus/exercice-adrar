@@ -21,7 +21,7 @@ echo '{
 }
 '>> package.json
 
-echo "/node_modules" >> .gitignore
+echo "/node_modules/" >> .gitignore
 
 echo "body{
 margin:0;
