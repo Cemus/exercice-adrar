@@ -1,11 +1,97 @@
 body {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin: 0;
   height: 100vh;
 }
 
+#app {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to right, rgb(43, 42, 42), rgb(19, 19, 19));
+  color: white;
+  height: 100%;
+  text-align: center;
+}
+
+.editor {
+  position: relative;
+  border-radius: 0.1rem;
+  box-shadow: 10px 10px 0 rgba(255, 153, 0, 0.507),
+    -10px -10px 0 rgba(0, 174, 255, 0.507);
+  min-width: 400px;
+  min-height: 200px;
+}
+
+.title-editor {
+  position: relative;
+}
+
+.title-editor:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 110px;
+  background-color: rgba(0, 174, 255, 1);
+  width: 0.5rem;
+  height: 100%;
+  animation-duration: 1s;
+  animation-name: cursor;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.title-text {
+  position: relative;
+}
+
+.title-text:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 70px;
+  background-color: rgba(255, 153, 0, 1);
+  width: 0.5rem;
+  height: 100%;
+  animation-duration: 1s;
+  animation-name: cursor;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
 .text-container {
-  border: 0.1rem solid black;
-  min-height: 22vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 0.5;
+}
+
+.text {
+  text-align: start;
+  box-shadow: 10px 10px 0 rgba(255, 153, 0, 0.5),
+    -10px -10px 0 rgba(0, 174, 255, 0.5);
+
+  padding: 0.5rem;
+  flex-grow: 1;
+  margin: 1rem;
+  color: rgb(255, 255, 255);
+  background-color: black;
+  border-radius: 0.1rem;
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.125;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.25;
+  }
 }

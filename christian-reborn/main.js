@@ -3,9 +3,9 @@ import DOMPurify from "isomorphic-dompurify";
 import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
 const editor = document.querySelector(".editor");
-const textArea = document.querySelector(".text-container");
-
+const textArea = document.querySelector(".text");
 const storage = localStorage.getItem("text");
+
 console.log(storage);
 if (storage) {
   textArea.innerHTML = marked.parse(storage);
