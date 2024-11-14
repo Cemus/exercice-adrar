@@ -9,7 +9,19 @@ mkdir ./$nom_projet
 cd "./$nom_projet" || { echo "Échec du changement de répertoire"; exit 1; }
 
 
-touch index.html style.css script.js
+touch index.html style.css script.js .gitignore package.json
+
+echo "{
+  "devDependencies": {
+    "vite": "^5.4.11"
+  },
+  "scripts": {
+    "dev": "vite --open"
+  }
+}
+" >> package.json
+
+echo "/node_modules" >> .gitignore
 
 echo "body{
 margin:0;
