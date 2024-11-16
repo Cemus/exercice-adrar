@@ -23,9 +23,10 @@ echo '{
 
 echo "/node_modules/" >> .gitignore
 
-echo "body{
-margin:0;
-box-sizing:border-box;}">> style.css
+echo "body {
+  margin: 0;
+  box-sizing: border-box;
+}">> style.css
 
 echo "<!DOCTYPE html>
 <html lang='en'>
@@ -40,5 +41,14 @@ echo "<!DOCTYPE html>
     
 </body>
 </html>" >> index.html
+
 echo "Dossier crée avec succès"
+echo "Installation des dépendances..."
+
+npm install
+
+echo "Dépendances installées."
+
+npm run dev
+
 fi
