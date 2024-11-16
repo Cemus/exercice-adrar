@@ -53,7 +53,7 @@ else
   echo "" 
   echo "Dépendances installées."
   echo "" 
-  echo "Lancement du serveur..."
+  echo "Lancement du serveur !"
 
 
   if ! npm run dev ; then
@@ -61,7 +61,5 @@ else
       exit 1
   fi
 
-  echo "" 
-  echo "Serveur lancé !"
 
 fi
