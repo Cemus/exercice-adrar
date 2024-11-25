@@ -1,9 +1,9 @@
 class Imc {
   /**
    *
-   * @param {*} personName
-   * @param {*} mass
-   * @param {*} height
+   * @param {string} personName
+   * @param {number} mass
+   * @param {number} height
    */
   constructor(personName, mass, height) {
     this.personName = personName;
@@ -15,7 +15,7 @@ class Imc {
   }
   /**
    *
-   * @param {*} imc
+   * @param {function(number):string} imc
    * @returns
    */
   getStatus(imc) {
