@@ -29,7 +29,7 @@ class Pme {
     return result;
   }
   getEconomicBalance() {
-    return this.getHumanCost() + this.R + this.FF + this.FA;
+    return this.R - this.getHumanCost() - this.FF - this.FA;
   }
 }
 
