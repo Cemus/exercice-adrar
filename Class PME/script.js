@@ -5,6 +5,11 @@ class Employee {
     this.age = age;
     this.salary = salary;
   }
+  /**
+   *
+   * @param {number} N
+   * @returns
+   */
   getMonthlySalary(N) {
     const result = this.salary * N;
     return result * 1.9;
@@ -12,6 +17,15 @@ class Employee {
 }
 
 class Pme {
+  /**
+   *
+   * @param {string} name
+   * @param {Employee[]} team
+   * @param {number} R
+   * @param {number} FF
+   * @param {number} FA
+   * @param {number} N
+   */
   constructor(name, team, R, FF, FA, N) {
     this.name = name;
     this.team = team;
