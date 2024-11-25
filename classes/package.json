@@ -1,0 +1,13 @@
+{
+  "name": "classes",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^5.4.11"
+  },
+  "scripts": {
+    "dev": "vite --open --clearScreen false",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}

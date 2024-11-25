@@ -1,0 +1,23 @@
+:root {
+  --color1: #f9f6f5;
+  --color2: #b6d3db;
+  --color3: #4cdee1;
+  --color4: #f19f91;
+  --color5: #8571a0;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: linear-gradient(0.25turn, #938cbd, var(--color5));
+  color: aliceblue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #f9f6f5;
+  text-underline-offset: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
