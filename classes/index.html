@@ -8,6 +8,26 @@
     <title>Classes</title>
   </head>
   <body>
-    <h1>Exercice classes</h1>
+    <h1>Exercise classes</h1>
+    <div class="container">
+      <div>
+        <label for="name">Name</label>
+        <input placeholder="Jean Dupont" id="name" type="string" />
+      </div>
+      <div>
+        <label for="mass">Mass (kg)</label>
+        <input placeholder="100" id="mass" min="0.1" type="number" />
+      </div>
+      <div>
+        <label for="height">Height (meter)</label>
+        <input placeholder="1.75" id="height" min="0.1" type="number" />
+      </div>
+
+      <button type="button" id="button">Submit</button>
+      <div class="result">
+        <p id="imc"></p>
+        <h3 id="result"></h3>
+      </div>
+    </div>
   </body>
 </html>
