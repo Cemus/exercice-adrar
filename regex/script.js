@@ -22,9 +22,9 @@ function test() {
 }
 
 function createElement(text) {
-  const p = document.createElement("p");
-  p.textContent = text;
-  return p;
+  const li = document.createElement("li");
+  li.textContent = text;
+  return li;
 }
 
 function checkMdp(pass) {
