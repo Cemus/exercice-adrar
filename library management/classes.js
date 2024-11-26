@@ -1,4 +1,9 @@
 export class Livre {
+  /**
+   *
+   * @param {string} titre
+   * @param {string} auteur
+   */
   constructor(titre, auteur) {
     this.titre = titre;
     this.auteur = auteur;
@@ -24,15 +29,27 @@ export class Livre {
 }
 
 export class Bibliotheque {
+  /**
+   *
+   * @param {string} nom
+   */
   constructor(nom) {
     this.nom = nom;
 
     this.livres = [];
   }
+  /**
+   *
+   * @param {Livre} livre
+   */
   ajouterLivre(livre) {
     console.info("Livre ajouté avec succès");
     this.livres.push(livre);
   }
+  /**
+   *
+   * @param {string} titre
+   */
   emprunterLivre(titre) {
     const livre = this.livres.find((livre) => {
       return livre.titre === titre;
@@ -49,6 +66,10 @@ export class Bibliotheque {
       console.error(error);
     }
   }
+  /**
+   *
+   * @param {string} titre
+   */
   retournerLivre(titre) {
     const livre = this.livres.find((livre) => {
       return livre.titre === titre;
@@ -57,9 +78,7 @@ export class Bibliotheque {
       if (livre) {
         livre.retourner();
       } else {
-        throw new Error(
-          "Aucun livre n'a été retrouvé : il n'a pas pu être retourné"
-        );
+        throw new Error("Nous n'avons jamais possédé ce livre !");
       }
     } catch (error) {
       console.error(error);

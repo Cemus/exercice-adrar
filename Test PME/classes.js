@@ -14,11 +14,14 @@ export class Employee {
   update() {
     this.xp += 1;
     if (this.xp >= this.xpMax) {
-      this.level += 1;
-      this.xp = this.xp - this.xpMax;
-      this.xpMax += 50;
-      this.power += Math.floor(Math.random() * 3 - 1 + 1);
+      this.leveUp();
     }
+  }
+  leveUp() {
+    this.level += 1;
+    this.xp = this.xp - this.xpMax;
+    this.xpMax += 50;
+    this.power += Math.floor(Math.random() * 3 - 1 + 1);
   }
 }
 
