@@ -30,6 +30,15 @@ header {
   box-shadow: 1px 1px 10px var(--lAccent);
 }
 
+#employees {
+  overflow-y: scroll;
+  max-height: 10rem;
+}
+
+#speed {
+  min-width: 6rem;
+}
+
 .infos {
   display: flex;
   align-items: baseline;

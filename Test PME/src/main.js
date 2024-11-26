@@ -12,6 +12,7 @@ const speedDownButton = document.getElementById("spdDown");
 const speedIndicator = document.getElementById("speed");
 const costRecruitSpan = document.getElementById("costRecruit");
 
+let uniqueId = 0;
 let gameSpeed = 750;
 let timer = 0;
 let costRecruit = 100;
@@ -96,10 +97,17 @@ function getHuman() {
     } (coût annuel : ${human.calculateSalary()}, efficacité : ${human.power}`;
 
     const stats = document.createElement("p");
-    stats.textContent = `Level :${human.level} | XP : ${human.xp}/${human.xpMax}`;
+    stats.textContent = `Level : ${human.level} | XP : ${human.xp}/${human.xpMax}`;
+
+    const fireButton = document.createElement("button");
+    fireButton.textContent = `Fire ${human.name} ${human.surname}`;
+    fireButton.addEventListener("click", () => {
+      pme.fireEmployee(human.id);
+    });
 
     li.append(info);
     li.append(stats);
+    li.append(fireButton);
 
     employees.append(li);
   });
@@ -132,6 +140,7 @@ addHumanButton.addEventListener("click", () => {
     const randomNames = getRandomName();
     pme.addHuman(
       new Employee(
+        createId(),
         randomNames.name,
         randomNames.surname,
         Math.floor(Math.random() * (50 - 1) + 1)
@@ -142,7 +151,12 @@ addHumanButton.addEventListener("click", () => {
   }
 });
 
-let pme = new Pme("Ma pme", [new Employee("You", "", 0, 50)]);
+function createId() {
+  uniqueId++;
+  return uniqueId;
+}
+
+let pme = new Pme("Ma pme", [new Employee(0, "You", "", 0, 50)]);
 
 let gameInterval = setInterval(() => {
   update();

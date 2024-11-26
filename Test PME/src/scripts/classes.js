@@ -1,7 +1,8 @@
 import { pmeBaseStats } from "./stats";
 
 export class Employee {
-  constructor(name, surname, power) {
+  constructor(id, name, surname, power) {
+    this.id = id;
     this.name = name;
     this.surname = surname;
     this.power = power;
@@ -70,6 +71,14 @@ export class Pme {
     for (let index = 0; index < this.team.length; index++) {
       const employee = this.team[index];
       employee.update();
+    }
+  }
+
+  fireEmployee(employeeId) {
+    for (let index = 0; index < this.team.length; index++) {
+      const element = this.team[index];
+      element.id === employeeId;
+      this.team.splice(index, 1);
     }
   }
 }
