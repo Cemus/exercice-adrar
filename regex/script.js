@@ -17,10 +17,6 @@ function checkMail(mail) {
   return testRegex;
 }
 
-function test() {
-  console.log("^^");
-}
-
 function createElement(text) {
   const li = document.createElement("li");
   li.textContent = text;
