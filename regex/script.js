@@ -66,7 +66,7 @@ closeModalButton.addEventListener("click", () => {
   dialog.close();
 });
 
-submitButton.addEventListener("click", () => {
+document.addEventListener("keyup", () => {
   resetWarning();
 
   const pass = mdp.value;
@@ -82,6 +82,14 @@ submitButton.addEventListener("click", () => {
   !mailVerified
     ? (email.style.borderColor = "red")
     : (email.style.borderColor = "green");
+});
+
+submitButton.addEventListener("click", () => {
+  const pass = mdp.value;
+  const mail = email.value;
+
+  const passVerified = checkMdp(pass);
+  const mailVerified = checkMail(mail);
 
   if (passVerified && mailVerified) {
     dialog.showModal();
