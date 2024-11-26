@@ -2,22 +2,56 @@ const submitButton = document.getElementById("submit");
 const mdp = document.getElementById("mdp");
 const email = document.getElementById("email");
 const dialog = document.querySelector("dialog");
-console.log(dialog);
+const warningList = document.getElementById("warning");
 
 function checkMail(mail) {
-  console.log(mail);
   const regex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/;
-  return regex.test(mail);
+  const testRegex = regex.test(mail);
+
+  if (!testRegex) {
+    const text = "L'adresse mail n'est point valide !";
+    warningList.append(createElement(text));
+  }
+
+  return testRegex;
+}
+
+function createElement(text) {
+  const p = document.createElement("p");
+  p.textContent = text;
+  return p;
 }
 
 function checkMdp(pass) {
-  console.log(pass);
   const charDecimal = /\d/;
   const charSpecial = /[$&@!]/;
-  return charDecimal.test(pass) && charSpecial.test(pass);
+
+  const decimalTest = charDecimal.test(pass);
+  const specialTest = charSpecial.test(pass);
+
+  if (!decimalTest) {
+    const text = "Le mot de passe doit contenir un chiffre !";
+    warningList.append(createElement(text));
+  }
+
+  if (!specialTest) {
+    const text = "Le mot de passe doit contenir un caractère spécial !";
+    warningList.append(createElement(text));
+  }
+
+  return decimalTest && specialTest;
+}
+
+function resetWarning() {
+  const warningListChildren = Array.from(warningList.childNodes);
+  warningListChildren.forEach((child) => {
+    warningList.removeChild(child);
+  });
 }
 
 submitButton.addEventListener("click", () => {
+  resetWarning();
+
   const pass = mdp.value;
   const mail = email.value;
 
@@ -32,8 +66,7 @@ submitButton.addEventListener("click", () => {
     ? (email.style.borderColor = "red")
     : (email.style.borderColor = "green");
 
-  if (checkMail(mail))
-    if (checkMail(mail) && checkMdp(pass)) {
-      dialog.showModal();
-    }
+  if (passVerified && mailVerified) {
+    dialog.showModal();
+  }
 });
