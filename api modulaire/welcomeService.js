@@ -1,4 +1,4 @@
-export default async function getData() {
+async function getData() {
   const url = `https://api.chucknorris.io/jokes/random`;
   try {
     const response = await fetch(url);
@@ -10,4 +10,10 @@ export default async function getData() {
   } catch (error) {
     console.error(error.message);
   }
+}
+
+export default async function changeTitle() {
+  const title = document.getElementsByTagName("h1")[0];
+  const punchline = await getData();
+  title.textContent = punchline;
 }
