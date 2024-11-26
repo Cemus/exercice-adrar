@@ -1,42 +1,35 @@
+import { pmeBaseStats } from "./stats";
+
 export class Employee {
-  /**
-   *
-   * @param {string} name
-   * @param {string} surname
-   * @param {number} salary
-   */
   constructor(name, surname, salary, power) {
     this.name = name;
     this.surname = surname;
     this.salary = salary;
-
     this.power = power;
+
+    this.xp = 0;
+    this.xpMax = 100;
+    this.level = 1;
   }
-  /**
-   *
-   * @param {number} N
-   * @returns
-   */
+  update() {
+    this.xp += 1;
+    if (this.xp >= this.xpMax) {
+      this.level += 1;
+      this.xp = this.xp - this.xpMax;
+      this.xpMax += 50;
+      this.power += Math.floor(Math.random() * 3 - 1 + 1);
+    }
+  }
 }
 
 export class Pme {
-  /**
-   *
-   * @param {string} name
-   * @param {Employee[]} team
-   * @param {number} R
-   * @param {number} FF
-   * @param {number} FA
-   * @param {number} N
-   */
   constructor(name, team) {
     this.name = name;
     this.team = team;
 
-    this.revenue = 50;
-    this.costs = 0;
-    this.salaryTaxes = 1.9;
-    this.money = 100;
+    this.revenue = pmeBaseStats.revenue;
+    this.costs = pmeBaseStats.costs;
+    this.money = pmeBaseStats.money;
   }
 
   addHuman(human) {
@@ -62,8 +55,15 @@ export class Pme {
   }
 
   calculateOutcome() {
-    this.costs = this.getHumanCost();
     this.revenue = this.calculateRevenue();
+    this.costs += this.getHumanCost();
     this.money += this.revenue - this.costs;
+  }
+
+  updateEmployees() {
+    for (let index = 0; index < this.team.length; index++) {
+      const employee = this.team[index];
+      employee.update();
+    }
   }
 }

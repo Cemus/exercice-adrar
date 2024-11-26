@@ -1,22 +1,43 @@
 import { Employee, Pme } from "./classes";
 import { nameList, surnameList } from "./nameList";
 
+//Dom
+const modal = document.querySelector("dialog")[0];
+const resetButton = document.getElementById("reset");
+
 const months = document.getElementById("months");
 let timer = 0;
 
-setInterval(() => {
-  timer++;
-  months.textContent = timer;
+const gameInterval = setInterval(() => {
   update();
 }, 1500);
 
-const pme = new Pme("Ma pme", [new Employee("You", "", 0, 100)]);
+function checkGameover() {
+  if (pme.money < -1000) {
+    gameInterval.clearInterval();
+    modal.showModal();
+  }
+}
+
+resetButton.addEventListener("click", () => {
+  resetGame();
+});
+
+function resetGame() {
+  pme = new Pme("Ma pme", [new Employee("You", "", 0, 50)]);
+}
+
+let pme = new Pme("Ma pme", [new Employee("You", "", 0, 50)]);
 
 const employees = document.getElementById("employees");
 const status = document.getElementById("status");
 
 function update() {
+  timer++;
+  months.textContent = timer;
+  checkGameover();
   pme.calculateOutcome();
+  pme.updateEmployees();
   getHuman();
   getStatus();
 }
@@ -25,7 +46,16 @@ function getHuman() {
   employees.textContent = "";
   pme.team.forEach((human) => {
     const li = document.createElement("li");
-    li.textContent = `${human.name}  ${human.surname} (coût annuel : ${human.salary}, efficacité : ${human.power}`;
+
+    const info = document.createElement("p");
+    info.textContent = `${human.name}  ${human.surname} (coût annuel : ${human.salary}, efficacité : ${human.power}`;
+
+    const stats = document.createElement("p");
+    stats.textContent = `Level :${human.level} | XP : ${human.xp}/${human.xpMax}`;
+
+    li.append(info);
+    li.append(stats);
+
     employees.append(li);
   });
 }
