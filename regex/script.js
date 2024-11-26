@@ -28,6 +28,18 @@ function checkMdp(pass) {
 
   const decimalTest = charDecimal.test(pass);
   const specialTest = charSpecial.test(pass);
+  const smallTest = pass.length > 8;
+  const longTest = pass.length <= 255;
+
+  if (!smallTest) {
+    const text = "Le mot de passe est trop court !";
+    warningList.append(createElement(text));
+  }
+
+  if (!longTest) {
+    const text = "Le mot de passe est trop long !";
+    warningList.append(createElement(text));
+  }
 
   if (!decimalTest) {
     const text = "Le mot de passe doit contenir un chiffre !";
