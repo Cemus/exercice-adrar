@@ -1,0 +1,56 @@
+:root {
+  --light: #f7f6f4;
+  --lAccent: #f2bf45;
+  --brand: #f7f6f4;
+  --dAccent: #bc725c;
+  --dark: #3c4657;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: var(--light);
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  background-color: var(--dAccent);
+  box-shadow: 1px 1px 10px var(--lAccent);
+}
+
+.infos {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+main {
+  background-color: var(--dark);
+  flex-grow: 1;
+}
+
+.time--container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.good {
+  color: #66ad69(132, 230, 132);
+}
+
+.danger {
+  color: #f44336;
+}

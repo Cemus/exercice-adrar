@@ -1,10 +1,9 @@
 import { pmeBaseStats } from "./stats";
 
 export class Employee {
-  constructor(name, surname, salary, power) {
+  constructor(name, surname, power) {
     this.name = name;
     this.surname = surname;
-    this.salary = salary;
     this.power = power;
 
     this.xp = 0;
@@ -17,6 +16,9 @@ export class Employee {
       this.leveUp();
     }
   }
+  calculateSalary() {
+    return this.level + Math.floor(this.power / 4);
+  }
   leveUp() {
     this.level += 1;
     this.xp = this.xp - this.xpMax;
@@ -26,10 +28,10 @@ export class Employee {
 }
 
 export class Pme {
-  constructor(name, team) {
+  constructor(name) {
     this.name = name;
-    this.team = team;
 
+    this.team = [];
     this.revenue = pmeBaseStats.revenue;
     this.costs = pmeBaseStats.costs;
     this.money = pmeBaseStats.money;
@@ -51,7 +53,8 @@ export class Pme {
     let result = 0;
     for (let index = 0; index < this.team.length; index++) {
       const element = this.team[index];
-      result += element.salary;
+      console.log(element.calculateSalary());
+      result += element.calculateSalary();
     }
 
     return result;
@@ -59,7 +62,7 @@ export class Pme {
 
   calculateOutcome() {
     this.revenue = this.calculateRevenue();
-    this.costs += this.getHumanCost();
+    this.costs = this.getHumanCost();
     this.money += this.revenue - this.costs;
   }
 
