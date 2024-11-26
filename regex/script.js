@@ -3,6 +3,7 @@ const mdp = document.getElementById("mdp");
 const email = document.getElementById("email");
 const dialog = document.querySelector("dialog");
 const warningList = document.getElementById("warning");
+const closeModalButton = document.getElementById("closeModal");
 
 function checkMail(mail) {
   const regex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/;
@@ -14,6 +15,10 @@ function checkMail(mail) {
   }
 
   return testRegex;
+}
+
+function test() {
+  console.log("^^");
 }
 
 function createElement(text) {
@@ -60,6 +65,10 @@ function resetWarning() {
     warningList.removeChild(child);
   });
 }
+
+closeModalButton.addEventListener("click", () => {
+  dialog.close();
+});
 
 submitButton.addEventListener("click", () => {
   resetWarning();
