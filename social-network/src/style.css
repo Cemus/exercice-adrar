@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gainsboro;
+}
