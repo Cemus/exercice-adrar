@@ -91,22 +91,36 @@ function getHuman() {
   pme.team.forEach((human) => {
     const li = document.createElement("li");
 
+    const name = document.createElement("h3");
+    name.textContent = `${human.name}  ${human.surname}`;
     const info = document.createElement("p");
-    info.textContent = `${human.name}  ${
-      human.surname
-    } (coût annuel : ${human.calculateSalary()}, efficacité : ${human.power}`;
+    info.textContent = `coût annuel : ${human.calculateSalary()}, efficacité : ${
+      human.power
+    }(${
+      human.powerMultiplier > 0
+        ? `+${human.getPowerPercentage()}`
+        : `-${human.getPowerPercentage()}`
+    }) morale : ${human.morale}`;
 
     const stats = document.createElement("p");
     stats.textContent = `Level : ${human.level} | XP : ${human.xp}/${human.xpMax}`;
 
     const fireButton = document.createElement("button");
-    fireButton.textContent = `Fire ${human.name} ${human.surname}`;
+    fireButton.textContent = `Fire`;
     fireButton.addEventListener("click", () => {
       pme.fireEmployee(human.id);
     });
 
+    const vacationButton = document.createElement("button");
+    vacationButton.textContent = !human.isFree ? `To vacation` : `Come back`;
+    vacationButton.addEventListener("click", () => {
+      pme.sendToVacation(human.id);
+    });
+
+    li.append(name);
     li.append(info);
     li.append(stats);
+    li.append(vacationButton);
     li.append(fireButton);
 
     employees.append(li);
