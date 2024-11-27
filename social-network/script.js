@@ -18,7 +18,7 @@ class User {
       if (content) {
         if (isContentSafe(content)) {
           this.publications.push(new Publication(this.name, content));
-          console.log(`${this.name} published something!`);
+          console.info(`${this.name} published something!`);
         } else {
           throw new Error("The publication contains inappropriate content!");
         }
@@ -26,7 +26,7 @@ class User {
         throw new Error("A publication cannot be empty.");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
@@ -52,7 +52,7 @@ class Publication {
       if (content) {
         if (isContentSafe(content)) {
           this.comments.push(new Comment(this.name, content));
-          console.log(`${this.name} wrote a new comment!`);
+          console.info(`${this.name} wrote a new comment!`);
         } else {
           throw new Error("The comment contains inappropriate content!");
         }
@@ -60,7 +60,7 @@ class Publication {
         throw new Error("A comment cannot be empty.");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
@@ -93,8 +93,16 @@ class Group {
    * @param {User} user
    */
   addMember(user) {
-    this.#members.push(user);
-    console.log(`${user.name} is now part of ${this.name}!`);
+    try {
+      if (!this.#members.includes(user)) {
+        this.#members.push(user);
+        console.info(`${user.name} is now part of ${this.name}!`);
+      } else {
+        throw new Error(`${user.name} is already in ${this.name}!`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
   /**
    *
@@ -105,7 +113,7 @@ class Group {
     try {
       if (!this.isPrivate) {
         const isInTheGroup = this.#members.includes(user);
-        console.log(
+        console.info(
           isInTheGroup
             ? `${user.name} is part of ${this.name}`
             : `${user.name} is NOT in ${this.name}`
@@ -115,7 +123,7 @@ class Group {
         throw new Error("This group is private.");
       }
     } catch (error) {
-      console.log(`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      console.error(`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⢣⠀⠀⢀⡄⠀⠀⡜⠀⠀⢀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠀⢣⠀⠀⢸⡀⢀⣾⣷⡄⠀⡇⠀⠀⡘⠀⠀⢀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠈⠢⡀⠀⠀⠱⡀⠀⠈⡆⠀⠀⣧⣾⣿⣿⣿⣼⠀⠀⢰⠁⠀⢀⠞⠀⠀⢀⡔⠁⠀⠀⠀⠀⠀
@@ -164,17 +172,16 @@ function isContentSafe(content) {
   return isSafe;
 }
 
-const charles = new User("charles");
+const charles = new User("Charles");
 const julie = new User("Julie");
 const privateGroup = new Group("Illuminados", true);
 const publicGroup = new Group("Think tank", false);
-charles.publish("Hi mark");
+charles.publish("Hi Julie!");
+julie.publish("Hi Charles, also fck you");
 privateGroup.addMember(charles);
 publicGroup.addMember(charles);
 privateGroup.displayContent(julie);
 privateGroup.displayContent(charles);
 publicGroup.displayContent(julie);
 publicGroup.displayContent(charles);
-julie.publish("fck you fuck fuck fuck");
-publicGroup.displayContent(charles);
-console.log(publicGroup.name);
+publicGroup.addMember(charles);
