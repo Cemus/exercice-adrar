@@ -90,32 +90,30 @@ function getHuman() {
   employees.textContent = "";
   pme.team.forEach((human) => {
     const li = document.createElement("li");
-
+    li.dataset.id = human.id;
     const name = document.createElement("h3");
     name.textContent = `${human.name}  ${human.surname}`;
     const info = document.createElement("p");
     info.textContent = `coût annuel : ${human.calculateSalary()}, efficacité : ${
       human.power
-    }(${
-      human.powerMultiplier > 0
-        ? `+${human.getPowerPercentage()}`
-        : `-${human.getPowerPercentage()}`
-    }) morale : ${human.morale}`;
+    }${
+      human.powerMultiplier > 0.5
+        ? human.powerMultiplier !== 1
+          ? `(+${human.getPowerPercentage()}%)`
+          : ""
+        : `(${human.getPowerPercentage()}%)`
+    } morale : ${human.morale}`;
 
     const stats = document.createElement("p");
     stats.textContent = `Level : ${human.level} | XP : ${human.xp}/${human.xpMax}`;
 
     const fireButton = document.createElement("button");
+    fireButton.classList.add("fire-button");
     fireButton.textContent = `Fire`;
-    fireButton.addEventListener("click", () => {
-      pme.fireEmployee(human.id);
-    });
 
     const vacationButton = document.createElement("button");
+    vacationButton.classList.add("vacation-button");
     vacationButton.textContent = !human.isFree ? `To vacation` : `Come back`;
-    vacationButton.addEventListener("click", () => {
-      pme.sendToVacation(human.id);
-    });
 
     li.append(name);
     li.append(info);
@@ -126,6 +124,23 @@ function getHuman() {
     employees.append(li);
   });
 }
+
+employees.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    const button = event.target;
+    const li = button.closest("li");
+    const employeeId = li.dataset.id;
+
+    if (button.classList.contains("fire-button")) {
+      console.log("^^");
+
+      pme.fireEmployee(parseInt(employeeId));
+    } else if (button.classList.contains("vacation-button")) {
+      console.log("^^");
+      pme.sendToVacation(parseInt(employeeId));
+    }
+  }
+});
 
 function getStatus() {
   const revenue = `<p>Revenue : ${pme.revenue}</p>`;
@@ -153,12 +168,7 @@ addHumanButton.addEventListener("click", () => {
 
     const randomNames = getRandomName();
     pme.addHuman(
-      new Employee(
-        createId(),
-        randomNames.name,
-        randomNames.surname,
-        Math.floor(Math.random() * (50 - 1) + 1)
-      )
+      new Employee(createId(), randomNames.name, randomNames.surname)
     );
 
     update();

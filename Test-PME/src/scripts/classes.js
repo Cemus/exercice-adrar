@@ -1,16 +1,19 @@
 import { pmeBaseStats } from "./stats";
+import { randomTraits } from "./stats";
 
 export class Employee {
-  constructor(id, name, surname, power) {
+  constructor(id, name, surname) {
     this.id = id;
     this.name = name;
     this.surname = surname;
-    this.power = power;
 
+    this.basePower = Math.floor(Math.random() * (50 - 1) + 1);
+    this.traits = randomTraits();
+    this.power = this.calculatePower();
     this.xp = 0;
     this.xpMax = 100;
     this.level = 1;
-    this.morale = Math.floor(Math.random() * 100 + 50 - 50);
+    this.morale = 100;
     this.isFree = false;
     this.isWorking = true;
     this.powerMultiplier = 0;
@@ -47,16 +50,21 @@ export class Employee {
   }
 
   getPowerPercentage() {
-    return this.powerMultiplier === 1
-      ? `${this.powerMultiplier}`
-      : this.powerMultiplier * 100;
+    return (this.powerMultiplier - 1) * 100;
   }
 
   calculatePower() {
+    console.log(this.traits);
+    this.power = this.basePower;
+    this.traits.forEach((trait) => {
+      if (trait.effect.stat === "power") {
+        this.power = this.basePower + trait.effect.value;
+      }
+    });
     if (this.morale >= 75) {
       this.powerMultiplier = 1.5;
     } else {
-      if (this.morale >= 50) {
+      if (this.morale >= 50 && this.morale < 75) {
         this.powerMultiplier = 1;
       } else {
         if (this.morale < 50 && this.morale > 25) {
