@@ -87,7 +87,6 @@ function update() {
 }
 
 function getHuman() {
-  employees.textContent = "";
   pme.team.forEach((human) => {
     const li = document.createElement("li");
     li.dataset.id = human.id;
@@ -133,7 +132,7 @@ employees.addEventListener("click", (event) => {
 
     if (button.classList.contains("fire-button")) {
       console.log("^^");
-
+      li.remove();
       pme.fireEmployee(parseInt(employeeId));
     } else if (button.classList.contains("vacation-button")) {
       console.log("^^");
@@ -170,8 +169,6 @@ addHumanButton.addEventListener("click", () => {
     pme.addHuman(
       new Employee(createId(), randomNames.name, randomNames.surname)
     );
-
-    update();
   }
 });
 
